@@ -13,11 +13,22 @@ class Auth0Test extends TestCase
 
     protected $config = [
         'account'      => self::DEFAULT_ACCOUNT,
-        'customDomain' => self::DEFAULT_CUSTOM_DOMAIN,
         'clientId'     => 'mock_client_id',
         'clientSecret' => 'mock_secret',
         'redirectUri'  => 'none',
     ];
+
+    public function testGetAuthorizationUrlWithCustomDomain()
+    {
+        set($this->config['customDomain'] = self::DEFAULT_CUSTOM_DOMAIN);
+
+        $provider = new OauthProvider(array_merge($this->config));
+        $url = $provider->getAuthorizationUrl();
+        $parsedUrl = parse_url($url);
+
+        $this->assertEquals(self::DEFAULT_CUSTOM_DOMAIN, $parsedUrl['host']);
+        $this->assertEquals('/authorize', $parsedUrl['path']);
+    }
 
     /**
      * @dataProvider regionDataProvider
@@ -40,6 +51,18 @@ class Auth0Test extends TestCase
 
         $this->expectException(RuntimeException::class);
         $provider->getAuthorizationUrl();
+    }
+
+    public function testGetUrlAccessTokenWithCustomDomain()
+    {
+        set($this->config['customDomain'] = self::DEFAULT_CUSTOM_DOMAIN);
+
+        $provider = new OauthProvider(array_merge($this->config));
+        $url = $provider->getBaseAccessTokenUrl();
+        $parsedUrl = parse_url($url);
+
+        $this->assertEquals($expectedHost, $parsedUrl['host']);
+        $this->assertEquals('/oauth/token', $parsedUrl['path']);
     }
 
     /**
