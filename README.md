@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/digitalartlab/oauth2-auth0.svg?branch=master)](https://travis-ci.org/digitalartlab/oauth2-auth0)
 [![License](https://img.shields.io/github/license/digitalartlab/oauth2-auth0.svg)](https://github.com/digitalartlab/oauth2-auth0/blob/master/LICENSE)
-[![Latest Stable Version](https://img.shields.io/github/tag/digitalartlab/oauth2-auth0.svg?label=version)](https://github.com/digitalartlab/oauth2-auth0/releases)
+[![Latest Stable Version](https://img.shields.io/github/release/digitalartlab/oauth2-auth0.svg)](https://github.com/digitalartlab/oauth2-auth0/releases)
 
 This package provides Auth0 OAuth 2.0 support for the PHP League's [OAuth 2.0 Client](https://github.com/thephpleague/oauth2-client).
 
@@ -22,7 +22,7 @@ First, add this to your `composer.json`:
         }
     ],
     "require": {
-        "digitalartlab/oauth2-auth0": "^2.1"
+        "digitalartlab/oauth2-auth0": "^3.0"
     }
 }
 ```
