@@ -1,5 +1,5 @@
 {
-    "name": "riskio/oauth2-auth0",
+    "name": "digitalartlab/oauth2-auth0",
     "description": "Auth0 OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
     "license": "MIT",
     "authors": [
@@ -7,6 +7,10 @@
             "name": "Nicolas Eeckeloo",
             "email": "neeckeloo@gmail.com",
             "homepage": "https://github.com/neeckeloo"
+        },
+        {
+            "name": "Thijmen de Valk",
+            "homepage": "https://github.com/thijmendevalk"
         }
     ],
     "keywords": [
@@ -18,7 +22,7 @@
         "auth0"
     ],
     "require": {
-        "php": ">=5.6.0",
+        "php": ">=7.0.0",
         "league/oauth2-client": "^2.2.1"
     },
     "require-dev": {
@@ -26,12 +30,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Riskio\\OAuth2\\Client\\Provider\\": "src/"
+            "DigitalArtLab\\OAuth2\\Client\\Provider\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Riskio\\OAuth2\\Client\\Test\\Provider\\": "tests/"
+            "DigitalArtLab\\OAuth2\\Client\\Test\\Provider\\": "tests/"
         }
     }
 }

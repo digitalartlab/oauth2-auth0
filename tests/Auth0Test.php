@@ -1,9 +1,9 @@
 <?php
-namespace Riskio\OAuth2\Client\Test\Provider;
+namespace DigitalArtLab\OAuth2\Client\Test\Provider;
 
 use League\OAuth2\Client\Token\AccessToken;
 use PHPUnit\Framework\TestCase;
-use Riskio\OAuth2\Client\Provider\Auth0 as OauthProvider;
+use DigitalArtLab\OAuth2\Client\Provider\Auth0 as OauthProvider;
 use RuntimeException;
 
 class Auth0Test extends TestCase
@@ -105,7 +105,7 @@ class Auth0Test extends TestCase
     }
 
     /**
-     * @expectedException \Riskio\OAuth2\Client\Provider\Exception\AccountNotProvidedException
+     * @expectedException \DigitalArtLab\OAuth2\Client\Provider\Exception\AccountNotProvidedException
      */
     public function testGetUserDetailsUrlWhenAccountIsNotSpecifiedShouldThrowException()
     {
@@ -118,7 +118,7 @@ class Auth0Test extends TestCase
     }
 
     /**
-     * @expectedException \Riskio\OAuth2\Client\Provider\Exception\InvalidRegionException
+     * @expectedException \DigitalArtLab\OAuth2\Client\Provider\Exception\InvalidRegionException
      */
     public function testGetUserDetailsUrlWhenInvalidRegionIsProvidedShouldThrowException()
     {
@@ -135,11 +135,11 @@ class Auth0Test extends TestCase
         return [
             [
                 OauthProvider::REGION_US,
-                sprintf('%s.auth0.com', self::DEFAULT_ACCOUNT),
+                sprintf('%s.auth0.com', self::DEFAULT_ACCOUNT, OauthProvider::REGION_US),
             ],
             [
                 OauthProvider::REGION_EU,
-                sprintf('%s.%s.auth0.com', self::DEFAULT_ACCOUNT, OauthProvider::REGION_EU),
+                sprintf('%s.%s.auth0.com', self::DEFAULT_ACCOUNT),
             ],
             [
                 OauthProvider::REGION_AU,

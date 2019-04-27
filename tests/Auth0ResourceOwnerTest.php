@@ -1,8 +1,8 @@
 <?php
-namespace Riskio\OAuth2\Client\Test\Provider;
+namespace DigitalArtLab\OAuth2\Client\Test\Provider;
 
 use PHPUnit\Framework\TestCase;
-use Riskio\OAuth2\Client\Provider\Auth0ResourceOwner;
+use DigitalArtLab\OAuth2\Client\Provider\Auth0ResourceOwner;
 
 class Auth0ResourceOwnerTest extends TestCase
 {

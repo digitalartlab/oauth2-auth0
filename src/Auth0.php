@@ -1,13 +1,13 @@
 <?php
-namespace Riskio\OAuth2\Client\Provider;
+namespace DigitalArtLab\OAuth2\Client\Provider;
 
 use League\OAuth2\Client\Provider\AbstractProvider;
 use League\OAuth2\Client\Token\AccessToken;
 use League\OAuth2\Client\Tool\BearerAuthorizationTrait;
 use Psr\Http\Message\ResponseInterface;
-use Riskio\OAuth2\Client\Provider\Exception\AccountNotProvidedException;
-use Riskio\OAuth2\Client\Provider\Exception\Auth0IdentityProviderException;
-use Riskio\OAuth2\Client\Provider\Exception\InvalidRegionException;
+use DigitalArtLab\OAuth2\Client\Provider\Exception\AccountNotProvidedException;
+use DigitalArtLab\OAuth2\Client\Provider\Exception\Auth0IdentityProviderException;
+use DigitalArtLab\OAuth2\Client\Provider\Exception\InvalidRegionException;
 
 class Auth0 extends AbstractProvider
 {
@@ -19,7 +19,7 @@ class Auth0 extends AbstractProvider
 
     protected $availableRegions = [self::REGION_US, self::REGION_EU, self::REGION_AU];
 
-    protected $region = self::REGION_US;
+    protected $region = self::REGION_EU;
 
     protected $account;
 

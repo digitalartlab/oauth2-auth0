@@ -1,5 +1,5 @@
 <?php
-namespace Riskio\OAuth2\Client\Provider\Exception;
+namespace DigitalArtLab\OAuth2\Client\Provider\Exception;
 
 use RuntimeException;
 

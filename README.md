@@ -1,22 +1,41 @@
 # Auth0 Provider for OAuth 2.0 Client
 
-[![Build Status](https://img.shields.io/travis/RiskioFr/oauth2-auth0.svg)](https://travis-ci.org/RiskioFr/oauth2-auth0)
-[![License](https://img.shields.io/packagist/l/riskio/oauth2-auth0.svg)](https://github.com/RiskioFr/oauth2-auth0/blob/master/LICENSE)
-[![Latest Stable Version](https://img.shields.io/packagist/v/riskio/oauth2-auth0.svg)](https://packagist.org/packages/riskio/oauth2-auth0)
+[![Build Status](https://travis-ci.org/digitalartlab/oauth2-auth0.svg?branch=master)](https://travis-ci.org/digitalartlab/oauth2-auth0)
+[![License](https://img.shields.io/github/license/digitalartlab/oauth2-auth0.svg)](https://github.com/digitalartlab/oauth2-auth0/blob/master/LICENSE)
+[![Latest Stable Version](https://img.shields.io/github/tag/digitalartlab/oauth2-auth0.svg?label=version)](https://github.com/digitalartlab/oauth2-auth0/releases)
 
 This package provides Auth0 OAuth 2.0 support for the PHP League's [OAuth 2.0 Client](https://github.com/thephpleague/oauth2-client).
 
+This version, which is a fork from [DigitalArtLabFr/oauth2-auth0](https://github.com/DigitalArtLabFr/oauth2-auth0) has our special Digital Art Lab flavour, with support for Auth0 custom domains and getting user roles on login.
+
 ## Installation
 
-To install, use composer:
+This version currently isn't on Packagist or the likes, so install it like this:
+
+First, add this to your `composer.json`:
+```json
+{
+    "repositories": [
+        {
+            "url": "https://github.com/digitalartlab/oauth2-auth0.git",
+            "type": "git"
+        }
+    ],
+    "require": {
+        "digitalartlab/oauth2-auth0": "^2.1"
+    }
+}
+```
+
+Then, run `composer update`.
 
 ```
-composer require riskio/oauth2-auth0
+composer update
 ```
 
 ## Usage
 
-Usage is the same as The League's OAuth client, using `Riskio\OAuth2\Client\Provider\Auth0` as the provider.
+Usage is the same as The League's OAuth client, using `DigitalArtLab\OAuth2\Client\Provider\Auth0` as the provider.
 
 ### Authorization Code Flow
 
@@ -25,9 +44,9 @@ You have to provide some parameters to the provider:
 - region (optional):
    - description: Auth0 region
    - values:
-      - Riskio\OAuth2\Client\Provider\Auth0::REGION_US (default value)
-      - Riskio\OAuth2\Client\Provider\Auth0::REGION_EU
-      - Riskio\OAuth2\Client\Provider\Auth0::REGION_AU
+      - DigitalArtLab\OAuth2\Client\Provider\Auth0::REGION_US
+      - DigitalArtLab\OAuth2\Client\Provider\Auth0::REGION_EU (default value)
+      - DigitalArtLab\OAuth2\Client\Provider\Auth0::REGION_AU
 - account:
    - description: Auth0 account name
 - customDomain (optional):
@@ -39,7 +58,7 @@ You have to provide some parameters to the provider:
 - redirectUri
 
 ```php
-$provider = new Riskio\OAuth2\Client\Provider\Auth0([
+$provider = new DigitalArtLab\OAuth2\Client\Provider\Auth0([
     'region'       => '{region}',
     'account'      => '{account}',
     'customDomain' => 'auth.example.com',
