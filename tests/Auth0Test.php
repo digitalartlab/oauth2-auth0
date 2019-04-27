@@ -139,7 +139,7 @@ class Auth0Test extends TestCase
             ],
             [
                 OauthProvider::REGION_EU,
-                sprintf('%s.%s.auth0.com', self::DEFAULT_ACCOUNT),
+                sprintf('%s.eu.auth0.com', self::DEFAULT_ACCOUNT),
             ],
             [
                 OauthProvider::REGION_AU,
