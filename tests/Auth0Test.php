@@ -20,7 +20,7 @@ class Auth0Test extends TestCase
 
     public function testGetAuthorizationUrlWithCustomDomain()
     {
-        set($this->config['customDomain'] = self::DEFAULT_CUSTOM_DOMAIN);
+        $this->config['customDomain'] = self::DEFAULT_CUSTOM_DOMAIN;
 
         $provider = new OauthProvider(array_merge($this->config));
         $url = $provider->getAuthorizationUrl();
@@ -55,7 +55,7 @@ class Auth0Test extends TestCase
 
     public function testGetUrlAccessTokenWithCustomDomain()
     {
-        set($this->config['customDomain'] = self::DEFAULT_CUSTOM_DOMAIN);
+        $this->config['customDomain'] = self::DEFAULT_CUSTOM_DOMAIN;
 
         $provider = new OauthProvider(array_merge($this->config));
         $url = $provider->getBaseAccessTokenUrl();
