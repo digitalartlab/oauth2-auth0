@@ -123,7 +123,7 @@ class Auth0ResourceOwner implements ResourceOwnerInterface
      */
     public function getRoles()
     {
-        return $this->getValueByKey($this->response, 'http://ckc-zoetermeer.nl/roles');
+        return $this->response['http://ckc-zoetermeer.nl/roles'];
     }
 
     /**
@@ -133,7 +133,7 @@ class Auth0ResourceOwner implements ResourceOwnerInterface
      */
     public function getPermissions()
     {
-        return $this->getValueByKey($this->response, 'http://ckc-zoetermeer.nl/permissions');
+        return $this->response['http://ckc-zoetermeer.nl/permissions'];
     }
 
     /**
