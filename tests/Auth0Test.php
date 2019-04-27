@@ -61,7 +61,7 @@ class Auth0Test extends TestCase
         $url = $provider->getBaseAccessTokenUrl();
         $parsedUrl = parse_url($url);
 
-        $this->assertEquals($expectedHost, $parsedUrl['host']);
+        $this->assertEquals(self::DEFAULT_CUSTOM_DOMAIN, $parsedUrl['host']);
         $this->assertEquals('/oauth/token', $parsedUrl['path']);
     }
 
