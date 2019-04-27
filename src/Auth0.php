@@ -44,10 +44,10 @@ class Auth0 extends AbstractProvider
     }
 
     protected function getCustomDomain() {
-        if (empty($this->accountCustom)) {
-            return $this->domain();
+        if (empty($this->customDomain)) {
+            return $this->getDomain();
         }
-        return 'https://' . $this->accountCustom;
+        return 'https://' . $this->customDomain;
     }
 
     public function getBaseAuthorizationUrl()
