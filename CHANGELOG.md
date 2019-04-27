@@ -8,6 +8,8 @@ First release after fork
 
 ### Added
 - Custom domain support
+- OIDC compliant resource owner
+- Roles and permissions custom claims, using hardcoded `http://ckc-zoetermeer.nl` namespace
 
 ### Changed
 - Default region is now EU

@@ -13,22 +13,24 @@ class Auth0ResourceOwnerTest extends TestCase
         'given_name' => 'Test',
         'family_name' => 'User',
         'picture' => 'https://lh5.googleusercontent.com/-NNasdfdfasdf/asfadfdf/photo.jpg',
-        'gender' => 'male',
-        'locale' => 'en-GB',
-        'clientID' => 'U_DUMmyClientIdhere',
-        'updated_at' => '2017-08-25T10:54:21.326Z',
-        'user_id' => 'google-oauth2|11204527450454',
-        'nickname' => ' testuser',
-        'identities' => [
-            [
-                'provider' => 'google-oauth2',
-                'user_id' => '11204527450454',
-                'connection' => 'google-oauth2',
-                'isSocial' => true,
-            ],
-        ],
-        'created_at' => '2017-08-14T13:22:29.753Z',
-        'sub' => 'google-oauth2|113974520365241488704',
+        'nickname' => 'testuser',
+        'birthdate' => '1996-10-19',
+        'address' => array(
+            'street_address' => 'Leidsewallen 80',
+            'postal_code' => '2722 PC',
+            'locality' => 'Zoetermeer',
+            'country' => 'The Netherlands',
+        ),
+        'phone_number' => '+31 79 31 61 411',
+        'sub' => 'auth0|113974520365241488704',
+        'http://ckc-zoetermeer.nl/roles' => array(
+            'user',
+            'test',
+        ),
+        'http://ckc-zoetermeer.nl/permissions' => array(
+            'ROLE_USER',
+            'ROLE_TEST',
+        ),
     ];
 
     public function testGetUserDetails()
@@ -36,9 +38,16 @@ class Auth0ResourceOwnerTest extends TestCase
         $user = new Auth0ResourceOwner($this->response);
 
         $this->assertEquals($this->response['name'], $user->getName());
-        $this->assertEquals($this->response['user_id'], $user->getId());
+        $this->assertEquals($this->response['given_name'], $user->getGivenName());
+        $this->assertEquals($this->response['family_name'], $user->getFamilyName());
+        $this->assertEquals($this->response['sub'], $user->getId());
         $this->assertEquals($this->response['email'], $user->getEmail());
-        $this->assertEquals($this->response['identities'], $user->getIdentities());
+        $this->assertEquals($this->response['address'], $user->getAddress());
+        $this->assertEquals($this->response['phone_number'], $user->getPhoneNumber());
+        $this->assertEquals($this->response['birthdate'], $user->getBirthdate());
+        $this->assertEquals($this->response['http://ckc-zoetermeer.nl/roles'], $user->getRoles());
+        $this->assertEquals($this->response['http://ckc-zoetermeer.nl/permissions'], $user->getPermissions());
+
         $this->assertEquals($this->response, $user->toArray());
     }
 }

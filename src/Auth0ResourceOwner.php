@@ -23,7 +23,7 @@ class Auth0ResourceOwner implements ResourceOwnerInterface
      */
     public function getId()
     {
-        return $this->getValueByKey($this->response, 'user_id');
+        return $this->getValueByKey($this->response, 'sub');
     }
 
     /**
@@ -47,6 +47,26 @@ class Auth0ResourceOwner implements ResourceOwnerInterface
     }
 
     /**
+     * Returns given name of the resource owner
+     *
+     * @return string|null
+     */
+    public function getGivenName()
+    {
+        return $this->getValueByKey($this->response, 'given_name');
+    }
+
+    /**
+     * Returns family name of the resource owner
+     *
+     * @return string|null
+     */
+    public function getFamilyName()
+    {
+        return $this->getValueByKey($this->response, 'family_name');
+    }
+
+    /**
      * Returns nickname of the resource owner
      *
      * @return string|null
@@ -57,17 +77,6 @@ class Auth0ResourceOwner implements ResourceOwnerInterface
     }
 
     /**
-     * Returns identities of the resource owner
-     *
-     * @see https://auth0.com/docs/user-profile/user-profile-structure
-     * @return array|null
-     */
-    public function getIdentities()
-    {
-        return $this->getValueByKey($this->response, 'identities');
-    }
-
-    /**
      * Returns picture url of the resource owner
      *
      * @return string|null
@@ -75,6 +84,56 @@ class Auth0ResourceOwner implements ResourceOwnerInterface
     public function getPictureUrl()
     {
         return $this->getValueByKey($this->response, 'picture');
+    }
+
+    /**
+     * Returns address of the resource owner
+     *
+     * @return array|null
+     */
+    public function getAddress()
+    {
+        return $this->getValueByKey($this->response, 'address');
+    }
+
+    /**
+     * Returns phone number of the resource owner
+     *
+     * @return array|null
+     */
+    public function getPhoneNumber()
+    {
+        return $this->getValueByKey($this->response, 'phone_number');
+    }
+
+    /**
+     * Returns birthdate of the resource owner
+     *
+     * @return date|null
+     */
+    public function getBirthdate()
+    {
+        return $this->getValueByKey($this->response, 'birthdate');
+    }
+
+    /**
+     * Returns roles of the resource owner
+     *
+     * @return array|null
+     */
+    public function getRoles()
+    {
+        return $this->getValueByKey($this->response, 'http://ckc-zoetermeer.nl/roles');
+    }
+
+    /**
+     * Returns permissions of the resource owner
+     *
+     * @return array|null
+     */
+    public function getPermissions()
+    {
+        return $this->getValueByKey($this->response, 'http://ckc-zoetermeer.nl/permissions');
     }
 
     /**
