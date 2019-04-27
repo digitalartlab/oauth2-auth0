@@ -6,7 +6,7 @@
 
 This package provides Auth0 OAuth 2.0 support for the PHP League's [OAuth 2.0 Client](https://github.com/thephpleague/oauth2-client).
 
-This version, which is a fork from [DigitalArtLabFr/oauth2-auth0](https://github.com/DigitalArtLabFr/oauth2-auth0) has our special Digital Art Lab flavour, with support for Auth0 custom domains and getting user roles on login.
+This version, which is a fork from [RiskioFr/oauth2-auth0](https://github.com/RiskioFr/oauth2-auth0), has our special Digital Art Lab flavour, with support for Auth0 custom domains and getting user roles on login.
 
 ## Installation
 
