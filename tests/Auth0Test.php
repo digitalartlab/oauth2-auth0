@@ -9,9 +9,11 @@ use RuntimeException;
 class Auth0Test extends TestCase
 {
     const DEFAULT_ACCOUNT = 'mock_account';
+    const DEFAULT_CUSTOM_DOMAIN = 'auth.example.com';
 
     protected $config = [
         'account'      => self::DEFAULT_ACCOUNT,
+        'customDomain' => self::DEFAULT_CUSTOM_DOMAIN,
         'clientId'     => 'mock_client_id',
         'clientSecret' => 'mock_secret',
         'redirectUri'  => 'none',
