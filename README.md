@@ -30,6 +30,8 @@ You have to provide some parameters to the provider:
       - Riskio\OAuth2\Client\Provider\Auth0::REGION_AU
 - account:
    - description: Auth0 account name
+- customDomain (optional):
+    - description: Auth0 custom domain, without `https://` or a trailing slash
 - clientId
    - description: The client ID assigned to you by the provider
 - clientSecret
@@ -40,6 +42,7 @@ You have to provide some parameters to the provider:
 $provider = new Riskio\OAuth2\Client\Provider\Auth0([
     'region'       => '{region}',
     'account'      => '{account}',
+    'customDomain' => 'auth.example.com',
     'clientId'     => '{auth0-client-id}',
     'clientSecret' => '{auth0-client-secret}',
     'redirectUri'  => 'https://example.com/callback-url'

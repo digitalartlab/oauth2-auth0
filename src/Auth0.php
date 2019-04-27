@@ -23,7 +23,9 @@ class Auth0 extends AbstractProvider
 
     protected $account;
 
-    protected function domain()
+    protected $customDomain;
+
+    protected function getDomain()
     {
         if (empty($this->account)) {
             throw new AccountNotProvidedException();
@@ -41,19 +43,26 @@ class Auth0 extends AbstractProvider
         return 'https://' . $this->account . '.' . $domain;
     }
 
+    protected function getCustomDomain() {
+        if (empty($this->accountCustom)) {
+            return $this->domain();
+        }
+        return 'https://' . $this->accountCustom;
+    }
+
     public function getBaseAuthorizationUrl()
     {
-        return $this->domain() . '/authorize';
+        return $this->getCustomDomain() . '/authorize';
     }
 
     public function getBaseAccessTokenUrl(array $params = [])
     {
-        return $this->domain() . '/oauth/token';
+        return $this->getCustomDomain() . '/oauth/token';
     }
 
     public function getResourceOwnerDetailsUrl(AccessToken $token)
     {
-        return $this->domain() . '/userinfo';
+        return $this->getDomain() . '/userinfo';
     }
 
     public function getDefaultScopes()
