@@ -1,6 +1,7 @@
 # Auth0 Provider for OAuth 2.0 Client
 
 [![Build Status](https://travis-ci.org/digitalartlab/oauth2-auth0.svg?branch=master)](https://travis-ci.org/digitalartlab/oauth2-auth0)
+[![Coverage Status](https://coveralls.io/repos/github/digitalartlab/oauth2-auth0/badge.svg?branch=master)](https://coveralls.io/github/digitalartlab/oauth2-auth0?branch=master)
 [![License](https://img.shields.io/github/license/digitalartlab/oauth2-auth0.svg)](https://github.com/digitalartlab/oauth2-auth0/blob/master/LICENSE)
 [![Latest Stable Version](https://img.shields.io/github/release/digitalartlab/oauth2-auth0.svg)](https://github.com/digitalartlab/oauth2-auth0/releases)
 
