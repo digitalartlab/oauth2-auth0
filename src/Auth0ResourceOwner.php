@@ -118,22 +118,26 @@ class Auth0ResourceOwner implements ResourceOwnerInterface
 
     /**
      * Returns roles of the resource owner
+     * 
+     * Provide your own namespace, like this: 'http://ckc-zoetermeer.nl'
      *
      * @return array|null
      */
-    public function getRoles()
+    public function getRoles($namespace)
     {
-        return $this->response['http://ckc-zoetermeer.nl/roles'];
+        return $this->response[$namespace . '/roles'];
     }
 
     /**
      * Returns permissions of the resource owner
+     * 
+     * Provide your own namespace, like this: 'http://ckc-zoetermeer.nl'
      *
      * @return array|null
      */
-    public function getPermissions()
+    public function getPermissions($namespace)
     {
-        return $this->response['http://ckc-zoetermeer.nl/permissions'];
+        return $this->response[$namespace . '/permissions'];
     }
 
     /**

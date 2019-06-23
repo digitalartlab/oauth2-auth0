@@ -5,11 +5,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [4.0.0] - 2019-06-23
+
 ### Changed
-- Now using PHPUnit ^7.0
+- Now using PHPUnit ^8.0
+- Roles and permissions custom claim now uses a `$namespace` variable, allowing code reusability
 
 ### Removed
-- PHP 7.0 support
+- PHP 7.0, PHP 7.1 support
 
 ## [3.0.0] - 2019-04-27
 First release after fork

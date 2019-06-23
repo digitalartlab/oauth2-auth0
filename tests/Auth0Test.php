@@ -6,6 +6,9 @@ use PHPUnit\Framework\TestCase;
 use DigitalArtLab\OAuth2\Client\Provider\Auth0 as OauthProvider;
 use RuntimeException;
 
+use DigitalArtLab\OAuth2\Client\Provider\Exception\AccountNotProvidedException;
+use DigitalArtLab\OAuth2\Client\Provider\Exception\InvalidRegionException;
+
 class Auth0Test extends TestCase
 {
     const DEFAULT_ACCOUNT = 'mock_account';
@@ -104,11 +107,10 @@ class Auth0Test extends TestCase
         $this->assertEquals('/userinfo', $parsedUrl['path']);
     }
 
-    /**
-     * @expectedException \DigitalArtLab\OAuth2\Client\Provider\Exception\AccountNotProvidedException
-     */
     public function testGetUserDetailsUrlWhenAccountIsNotSpecifiedShouldThrowException()
     {
+        $this->expectException(AccountNotProvidedException::class);
+
         unset($this->config['account']);
 
         $provider = new OauthProvider($this->config);
@@ -117,11 +119,10 @@ class Auth0Test extends TestCase
         $provider->getResourceOwner($accessTokenDummy);
     }
 
-    /**
-     * @expectedException \DigitalArtLab\OAuth2\Client\Provider\Exception\InvalidRegionException
-     */
     public function testGetUserDetailsUrlWhenInvalidRegionIsProvidedShouldThrowException()
     {
+        $this->expectException(InvalidRegionException::class);
+
         $this->config['region'] = 'invalid_region';
 
         $provider = new OauthProvider($this->config);

@@ -37,6 +37,8 @@ class Auth0ResourceOwnerTest extends TestCase
     {
         $user = new Auth0ResourceOwner($this->response);
 
+        $namespace = 'http://ckc-zoetermeer.nl';
+
         $this->assertEquals($this->response['name'], $user->getName());
         $this->assertEquals($this->response['given_name'], $user->getGivenName());
         $this->assertEquals($this->response['family_name'], $user->getFamilyName());
@@ -45,8 +47,8 @@ class Auth0ResourceOwnerTest extends TestCase
         $this->assertEquals($this->response['address'], $user->getAddress());
         $this->assertEquals($this->response['phone_number'], $user->getPhoneNumber());
         $this->assertEquals($this->response['birthdate'], $user->getBirthdate());
-        $this->assertEquals($this->response['http://ckc-zoetermeer.nl/roles'], $user->getRoles());
-        $this->assertEquals($this->response['http://ckc-zoetermeer.nl/permissions'], $user->getPermissions());
+        $this->assertEquals($this->response['http://ckc-zoetermeer.nl/roles'], $user->getRoles($namespace));
+        $this->assertEquals($this->response['http://ckc-zoetermeer.nl/permissions'], $user->getPermissions($namespace));
 
         $this->assertEquals($this->response, $user->toArray());
     }
